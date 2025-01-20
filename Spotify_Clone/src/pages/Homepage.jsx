@@ -3,10 +3,20 @@ import Sidebar from '../components/Sidebar';
 import { CgMenuRound } from "react-icons/cg";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
+import Footer from '../components/Footer';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Homepage() {
+  const imageArray = [
+    "Img1.png", "image2.jpg", "image3.jpg", "image4.jpg", 
+    "image5.jpg", "image6.jpg", "image7.jpg", "image8.jpg",
+    "image9.jpg", "image10.jpg", "image11.jpg", "image12.jpg", 
+    "image13.jpg", "image14.jpg", "image15.jpg", "image16.jpg", 
+    "image17.jpg", "image18.jpg", "image19.jpg", "image20.jpg"
+  ];
+
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-[#121212]">
       {/* Left Sidebar */}
       <Sidebar />
 
@@ -53,75 +63,97 @@ function Homepage() {
         </header>
 
         {/* Content area with library and main content */}
-<div className="flex flex-1 bg-[#121212] overflow-hidden">
-  {/* Library Section */}
-  <div className="w-[390px] p-4 border-r border-[#282828] overflow-y-auto flex flex-col">
-    {/* Library Header */}
-    <div className="flex justify-between items-center mb-6">
-      <div className="flex items-center gap-2">
-        <span className="text-xl font-bold text-white">Your library</span>
-        <CgMenuRound className="text-2xl text-white" />
-      </div>
-      <div className="flex items-center gap-4">
-        <button className="hover:bg-[#282828] p-2 rounded-full">
-          <IoIosArrowForward className="text-2xl text-white" />
-        </button>
-        <button className="hover:bg-[#282828] p-2 rounded-full">
-          <IoMdAdd className="text-2xl text-white" />
-        </button>
-      </div>
-    </div>
+        <div className="flex flex-1 overflow-hidden">
+          {/* Library Section */}
+          <div className="w-[390px] p-4 border-r border-[#282828] overflow-y-auto flex flex-col">
+            {/* Library Header */}
+            <div className="flex justify-between items-center mb-6">
+              <div className="flex items-center gap-2">
+                <span className="text-xl font-bold text-white">Your library</span>
+                <CgMenuRound className="text-2xl text-white" />
+              </div>
+              <div className="flex items-center gap-4">
+                <button className="hover:bg-[#282828] p-2 rounded-full">
+                  <IoIosArrowForward className="text-2xl text-white" />
+                </button>
+                <button className="hover:bg-[#282828] p-2 rounded-full">
+                  <IoMdAdd className="text-2xl text-white" />
+                </button>
+              </div>
+            </div>
 
-    {/* Create Playlist Card */}
-    <div className="bg-[#242424] rounded-lg p-6 mb-4">
-      <h2 className="text-xl font-bold text-white mb-2">Create your first playlist</h2>
-      <p className="text-gray-400 mb-4">It's easy we will help you</p>
-      <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
-        Create Playlist
-      </button>
-    </div>
+            {/* Create Playlist Card */}
+            <div className="bg-[#242424] rounded-lg p-6 mb-4">
+              <h2 className="text-xl font-bold text-white mb-2">Create your first playlist</h2>
+              <p className="text-gray-400 mb-4">It's easy we will help you</p>
+              <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
+                Create Playlist
+              </button>
+            </div>
 
-    {/* Browse Podcast Card */}
-    <div className="bg-[#242424] rounded-lg p-6 mb-auto">
-      <h2 className="text-xl font-bold text-white mb-2">Let's find some podcast to follow</h2>
-      <p className="text-gray-400 mb-4">We'll keep you update on new episode</p>
-      <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
-        Browse Podcast
-      </button>
-    </div>
+            {/* Browse Podcast Card */}
+            <div className="bg-[#242424] rounded-lg p-6 mb-auto">
+              <h2 className="text-xl font-bold text-white mb-2">Let's find some podcast to follow</h2>
+              <p className="text-gray-400 mb-4">We'll keep you updated on new episodes</p>
+              <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
+                Browse Podcast
+              </button>
+            </div>
 
-    {/* Bottom Text */}
-<div className="text-gray-400 text-xs mt-4 px-2">
-  {/* Group 1 */}
-  <div className="mb-2">
-    <span className="mr-4">Legal</span>
-    <span className="mr-4">Safety & Privacy Center</span>
-    <span className="mr-4">Privacy Policy</span>
-    <span className="mr-4">Cookies</span>
-  </div>
-  
-  {/* Group 2 */}
-  <div className="mb-2">
-    <span className="mr-4">About Ads</span>
-    <span className="mr-4">Accessibility</span>
-  </div>
+            {/* Bottom Text */}
+            <div className="text-gray-400 text-xs mt-4 px-2">
+              {/* Group 1 */}
+              <div className="mb-2">
+                <span className="mr-4">Legal</span>
+                <span className="mr-4">Safety & Privacy Center</span>
+                <span className="mr-4">Privacy Policy</span>
+                <span className="mr-4">Cookies</span>
+              </div>
+              
+              {/* Group 2 */}
+              <div className="mb-2">
+                <span className="mr-4">About Ads</span>
+                <span className="mr-4">Accessibility</span>
+              </div>
 
-  {/* Group 3 */}
-  <div>
-    <span className="mr-2 font-bold">Cookies</span>
-  </div>
-</div>
+              {/* Group 3 */}
+              <div>
+                <span className="mr-2 font-bold">Cookies</span>
+              </div>
+            </div>
+          </div>
 
-</div>
+          {/* Main Content Area */}
+          <div className="flex-1 h-[845px] overflow-y-auto scrollbar-hide bg-[#121212]">
+            {/* Cards container with scrolling */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {imageArray.map((image, index) => (
+                <div
+                  key={index}
+                  className={`bg-[#121212] rounded-lg p-6 ${index === 0 ? 'col-span-2 md:col-span-3 lg:col-span-4' : ''}`}
+                >
+                  <Link to={`/somepath/${index + 1}`}> {/* Link with route */}
+                    <img 
+                      src={`/assets/${image}`} 
+                      alt={`Card ${index + 1}`} 
+                      className="w-full h-full object-cover rounded-lg" 
+                    />
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <Footer/>
+          </div>
 
-
-  {/* Main Content Area */}
-  <div className="flex-1 p-8 overflow-y-auto">
-    {/* Add your main content here */}
-  </div>
-</div>
-        
-
+          {/* Newsection inside the cards */}
+          <div className="bg-[#121212] p-6 mt-6">
+            <h2 className="text-xl font-bold text-white mb-2">Newsection inside the cards</h2>
+            <p className="text-gray-400 mb-4">Newsection inside the cards.</p>
+            <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
+              Newsection
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
