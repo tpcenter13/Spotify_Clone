@@ -8,11 +8,31 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Homepage() {
   const imageArray = [
-    "Img1.png", "image2.jpg", "image3.jpg", "image4.jpg", 
-    "image5.jpg", "image6.jpg", "image7.jpg", "image8.jpg",
-    "image9.jpg", "image10.jpg", "image11.jpg", "image12.jpg", 
-    "image13.jpg", "image14.jpg", "image15.jpg", "image16.jpg", 
-    "image17.jpg", "image18.jpg", "image19.jpg", "image20.jpg"
+    "Img1.png", "Top50.png", "Drake.png", "Postmalone.png", 
+    "Weeknd.png", "olivia.png", "bruno.png", "hevab.png",
+    "image 13.png", "image 14.png", "image 15.png", "image 16.png", 
+    "image 17.png", "image 18.png", "image 19.png", "image 26.png", 
+    "image 11.png",   
+  ];
+
+  const cardData = [
+    { title: "Top 50 Global", description: "Your weekly update of the most played tracks right now - Global." },
+    { title: "Top 50 Global", description: "Your weekly update of the most.." },
+    { title: "Drake", description: "Hip-hop legend with versatile flows and" },
+    { title: "Post Malone", description: "R&B star with haunting vocals and" },
+    { title: "The Weeknd", description: "R&B star with haunting vocals and " },
+    { title: "Olivia Rodrigo", description: "Pop sensation blending raw emotion." },
+    { title: "Bruno Mars", description: "Pop icon known for smooth vocals, funky" },
+    { title: "hev abi", description: "Focus and relax with chilled-out lo-fi tunes" },
+    { title: "Lo-Fi Vibes", description: "Relax with chilled-out lo-fi tunes." },
+    { title: "Indie Escape", description: "Explore heartfelt melodies and indie beats." },
+    { title: "Phonk", description: "Dive into hypnotic, high-energy phonk" },
+    { title: "Pop Hits", description: "Catchy and trending pop songs for all moods." },
+    { title: "Classical Calm", description: "Elegant and timeless classical compositions." },
+    { title: "Rock Energy", description: "High-energy rock anthems to pump you up." },
+    { title: "EDM Pulse", description: "Feel the beat with energetic electronic music." },
+    { title: "Acoustic Love", description: "Heartwarming acoustic tunes for every moment." },
+    { title: "Hip-Hop Beats", description: "Groove to the rhythm of fresh hip-hop tracks." }
   ];
 
   return (
@@ -127,30 +147,59 @@ function Homepage() {
           <div className="flex-1 h-[845px] overflow-y-auto scrollbar-hide bg-[#121212]">
             {/* Cards container with scrolling */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {imageArray.map((image, index) => (
-                <div
-                  key={index}
-                  className={`bg-[#121212] rounded-lg p-6 ${index === 0 ? 'col-span-2 md:col-span-3 lg:col-span-4' : ''}`}
-                >
-                  <Link to={`/somepath/${index + 1}`}> {/* Link with route */}
-                    <img 
-                      src={`/assets/${image}`} 
-                      alt={`Card ${index + 1}`} 
-                      className="w-full h-full object-cover rounded-lg" 
-                    />
-                  </Link>
+              {/* Card 1 */}
+              <div className="bg-[#121212] rounded-lg p-6 col-span-2 md:col-span-3 lg:col-span-4">
+                <div className="relative">
+                  <img 
+                    src={`/assets/${imageArray[0]}`} 
+                    alt="Card 1" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                  <div className="absolute inset-0 flex justify-between items-end bg-black bg-opacity-50 p-9">
+                    {/* Group 1: Text elements */}
+                    <div>
+                      <p className="text-white text-xl">Out Now</p>
+                      <p className="text-white text-xl font-semibold">Justin Bieber - Changes</p>
+                    </div>
+                    <Link to={`/#/1`}> {/* Link with route */}
+                      {/* Button */}
+                      <button className="text-white border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-black">
+                        Listen Now
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Cards 2 to 17 */}
+              {imageArray.slice(1).map((image, index) => (
+                <div key={index + 1} className="bg-[#121212] rounded-lg p-6">
+                  <div className="relative group">
+                    <Link to={`/#/${index + 2}`}> {/* Link with route */}
+                      <img 
+                        src={`/assets/${image}`} 
+                        alt={`Card ${index + 2}`} 
+                        className="w-full h-full object-cover rounded-lg transition-transform transform group-hover:scale-105" 
+                      />
+                      <div className="absolute inset-0 flex flex-col justify-end bg-black bg-opacity-50 p-4 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+                        {/* Title and Description */}
+                        <h2 className="text-white text-xl font-semibold mb-2">{cardData[index + 1].title}</h2>
+                        <p className="text-gray-400">{cardData[index + 1].description}</p>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
-            <Footer/>
+            <Footer />
           </div>
 
-          {/* Newsection inside the cards */}
-          <div className="bg-[#121212] p-6 mt-6">
-            <h2 className="text-xl font-bold text-white mb-2">Newsection inside the cards</h2>
-            <p className="text-gray-400 mb-4">Newsection inside the cards.</p>
-            <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
-              Newsection
+          {/* Music player */}
+          <div className="bg-[#121212] p-5 mt-6 ml-36">
+            <h2 className="text-xl font-bold text-white mb-2">Music player</h2>
+            <p className="text-gray-400 mb-4">Music player.</p>
+            <button className="bg-green-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-green-600">
+              Create Playlist
             </button>
           </div>
         </div>
