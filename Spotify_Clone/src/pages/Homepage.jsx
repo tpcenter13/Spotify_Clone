@@ -5,6 +5,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import MusicPlayer from '../components/MusicPlayer';
 
 function Homepage() {
   const imageArray = [
@@ -195,12 +196,8 @@ function Homepage() {
           </div>
 
           {/* Music player */}
-          <div className="bg-[#121212] p-5 mt-6 ml-36">
-            <h2 className="text-xl font-bold text-white mb-2">Music player</h2>
-            <p className="text-gray-400 mb-4">Music player.</p>
-            <button className="bg-green-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-green-600">
-              Create Playlist
-            </button>
+          <div className="bg-[#121212]">
+            <MusicPlayer/>
           </div>
         </div>
       </div>
